@@ -1,8 +1,6 @@
 # MetSiteScanner
 
-Finds possible **mono- or di-metal binding sites** in a peptide PDB, places the metal atoms, and writes a new PDB with them added. Built as the first step before QM and [easyPARM](https://github.com/) parameterisation of metal sites.
-
-It is a geometry-based scanner, not an energy calculation. It tells you *where a metal could fit*, and you decide which sites are worth taking to QM.
+Finds possible **mono- or di-metal binding sites** in a peptide PDB, places the metal atoms, and writes a new PDB with them added. It is a geometry-based scanner, not an energy calculation. It tells you *where a metal could fit*, and you decide which sites are worth taking to QM.
 
 ## What it recognises
 
@@ -92,20 +90,6 @@ In words:
 - A copy of your input PDB plus the new metals as `HETATM` records (atom name and residue name `CU`, residue numbers starting at **9001**).
 - `REMARK` lines list each site's donors, M–N distances and score, so you can see what each metal is bound to.
 - A ranked summary is printed on screen.
-
-## Using it with the easyPARM run script
-
-Each metal (unique residue number) is treated as its own site by `easyPARM_run_v03.sh -s1`. So:
-
-1. Run the scanner and open the output PDB.
-2. Delete the metals you do not want to carry forward.
-3. Run the QM setup on what is left:
-
-```bash
-./easyPARM_run_v03.sh -s1 Protein_CU4_mono.pdb
-```
-
-The `-s1` script only supports Cu(II) (multiplicity 2).
 
 ## Limitations
 
