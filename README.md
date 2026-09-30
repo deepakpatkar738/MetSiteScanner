@@ -75,8 +75,6 @@ python3 MetSiteScanner.py Protein.pdb --mono Cu4 --top 10
 
 ![MetSiteScanner workflow](workflow.svg)
 
-In words:
-
 1. **Check the request.** Unknown metal stops the run. An unusual CN only gives a warning.
 2. **Collect donors** (His N and the N-terminus) and skip the mode if there are too few.
 3. **Build candidate combinations** of donors that sit close together.
